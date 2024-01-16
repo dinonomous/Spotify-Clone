@@ -1,0 +1,43 @@
+.border{
+    border: 2px solid rgb(243, 237, 237);
+    margin: 3px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.items-center{
+    align-items: center;
+}
+.bg-black{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.bg-gray{
+    background-color: #121212 !important;
+}
+.rounded{
+    border-radius: 7px;
+}
+.m-2{
+    margin: 5px !important;
+}
+
+.p-1{
+    padding: 10px !important;
+}
+
+.khATCl {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    cursor: pointer;
+    text-align: center;
+    text-transform: none;
+    color: var(--text-subdued,#6a6a6a);
+  }

@@ -23,7 +23,8 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getsongs(folder){
     currFolder = folder;
-    let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+    let a = await fetch(`/${folder}/`);
+    console.log(a)
     let responce = await a.text();
     let div = document.createElement('div');
     div.innerHTML = responce;
@@ -41,7 +42,7 @@ async function getsongs(folder){
     for (const song of songs) {
         songUL.innerHTML = songUL.innerHTML + `<li><img src="images/music.svg" alt="">
                             <div class="info">
-                                <div>${song.replaceAll("%20", " ")} </div>
+                                <div>${song} </div>
                                 <div>dinesh</div>
                             </div>
                             <div class="playnow">
@@ -60,7 +61,7 @@ async function getsongs(folder){
 }
 
 const playMusic =(track, pause='false') =>{
-    currentSong.src = `http://127.0.0.1:3000/${currFolder}/` +track
+    currentSong.src = `/${currFolder}/` +track
     if(!pause){
         currentSong.play()
         play.src = 'images/pause.svg'
@@ -73,7 +74,7 @@ const playMusic =(track, pause='false') =>{
 }
 
 async function displayAlbums(){
-    let a = await fetch(`http://127.0.0.1:3000/songs/`);
+    let a = await fetch(`/songs/`);
     let responce = await a.text();
     let div = document.createElement('div');
     div.innerHTML = responce;
@@ -85,7 +86,7 @@ async function displayAlbums(){
         
         if(e.href.includes("/songs")){
             let folder = e.href.split("/").slice(-2)[0]
-            let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
+            let a = await fetch(`/songs/${folder}/info.json`);
             let responce = await a.json();
             let cardcontainer = document.querySelector(".cardcontainer")
             console.log(responce)
@@ -94,7 +95,7 @@ async function displayAlbums(){
                         <div class="play">
                             <button class="play"><img src="images/play.svg" alt=""></button>
                         </div>
-                        <img src="http://127.0.0.1:3000/songs/${folder}/cover.jpg" class="card-img-top"
+                        <img src="/songs/${folder}/cover.jpg" class="card-img-top"
                             alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${responce.title}</h5>
